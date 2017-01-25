@@ -41,5 +41,7 @@ namespace AspNetApp.Models
     {
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Comment> Comments { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetApp.Models.Director> Directors { get; set; }
     }
 }

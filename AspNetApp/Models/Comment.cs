@@ -12,6 +12,7 @@ namespace AspNetApp.Models
 {
     public class Comment
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -39,5 +40,7 @@ namespace AspNetApp.Models
     public class CommentDbContext : DbContext
     {
         public DbSet<Comment> Comments { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetApp.Models.Movie> Movies { get; set; }
     }
 }

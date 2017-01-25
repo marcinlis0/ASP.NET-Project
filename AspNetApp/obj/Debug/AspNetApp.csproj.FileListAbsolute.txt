@@ -79,3 +79,4 @@ D:\Studia\Technologie .NET\projekt\AspNetApp\AspNetApp\bin\Microsoft.Owin.Securi
 D:\Studia\Technologie .NET\projekt\AspNetApp\AspNetApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Studia\Technologie .NET\projekt\AspNetApp\AspNetApp\obj\Debug\AspNetApp.dll
 D:\Studia\Technologie .NET\projekt\AspNetApp\AspNetApp\obj\Debug\AspNetApp.pdb
+D:\Studia\Technologie .NET\projekt\AspNetApp\AspNetApp\obj\Debug\AspNetApp.csprojResolveAssemblyReference.cache
