@@ -22,26 +22,21 @@ namespace AspNetApp.Models
         [Required(ErrorMessage = "Wypełnij skrócony opis!")]
         [StringLength(100, ErrorMessage = "Opis może mieć maksymalnie 100 znaków!")]
         [Display(Name = "Skrócony opis")]
+        [DataType(DataType.MultilineText)]
         public string ShortDesc { get; set; }
 
         [Required(ErrorMessage = "Wypełnij opis!")]
         [StringLength(100, ErrorMessage = "Opis może mieć maksymalnie 200 znaków!")]
         [Display(Name = "Pełny opis")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        [ForeignKey("Director")]
+        [Display(Name = "Reżyser")]
         public int DirectorId { get; set; }
+
         public virtual Director Director { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 
-    }
-
-    public class MoviesDbContext : DbContext
-    {
-        public DbSet<Movie> Movies { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-
-        public System.Data.Entity.DbSet<AspNetApp.Models.Director> Directors { get; set; }
     }
 }

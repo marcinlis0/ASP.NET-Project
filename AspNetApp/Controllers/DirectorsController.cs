@@ -10,6 +10,7 @@ using AspNetApp.Models;
 
 namespace AspNetApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DirectorsController : Controller
     {
         private DirectorDbContext db = new DirectorDbContext();

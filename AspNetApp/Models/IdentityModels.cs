@@ -20,6 +20,10 @@ namespace AspNetApp.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Director> Directors { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,5 +33,6 @@ namespace AspNetApp.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

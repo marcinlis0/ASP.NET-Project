@@ -95,6 +95,7 @@ namespace AspNetApp.Controllers
         }
 
         // GET: Comments/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)

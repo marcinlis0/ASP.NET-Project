@@ -27,14 +27,9 @@ namespace AspNetApp.Models
         [Required(ErrorMessage = "Wypełnij opis!")]
         [Display(Name = "Opis")]
         [StringLength(200, MinimumLength = 10, ErrorMessage = "Opis musi posiadać od 10 do 200 znaków!")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }
-    }
-
-    public class DirectorDbContext : DbContext
-    {
-        public DbSet<Director> Directors { get; set; }
-        public DbSet<Movie> Movies { get; set; }
     }
 }

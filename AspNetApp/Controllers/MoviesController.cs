@@ -15,6 +15,7 @@ namespace AspNetApp.Controllers
         private MoviesDbContext db = new MoviesDbContext();
 
         // GET: Movies
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var movies = db.Movies.Include(m => m.Director);
@@ -22,6 +23,7 @@ namespace AspNetApp.Controllers
         }
 
         // GET: Movies/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace AspNetApp.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.DirectorId = new SelectList(db.Directors, "Id", "Name");
@@ -48,6 +51,7 @@ namespace AspNetApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,Title,ShortDesc,Description,DirectorId")] Movie movie)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace AspNetApp.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +87,7 @@ namespace AspNetApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Title,ShortDesc,Description,DirectorId")] Movie movie)
         {
             if (ModelState.IsValid)
@@ -95,6 +101,7 @@ namespace AspNetApp.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +119,7 @@ namespace AspNetApp.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Movie movie = db.Movies.Find(id);
@@ -127,6 +135,12 @@ namespace AspNetApp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult List()
+        {
+            var movies = db.Movies.Include(m => m.Director);
+            return View();
         }
     }
 }
